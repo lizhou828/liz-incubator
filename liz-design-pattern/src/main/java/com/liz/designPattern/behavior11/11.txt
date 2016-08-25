@@ -1,0 +1,27 @@
+原创文章，转载请注明出处：http://www.cnblogs.com/beijiguangyong/
+
+
+
+行为型
+
+13. Interpreter（解释器）
+
+14. Template Method（模板方法）
+
+15. Chain of Responsibility（责任链）
+
+16. Command（命令）
+
+17. Iterator（迭代器）
+
+18. Mediator（中介者）
+
+19. Memento（备忘录）
+
+20. Observer（观察者）
+
+21. State（状态）
+
+22. Strategy（策略）
+
+23. Visitor（访问者）

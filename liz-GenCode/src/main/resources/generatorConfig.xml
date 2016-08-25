@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<!--
+    本配置文件参考网址：
+        http://blog.csdn.net/wyc_cs/article/details/9023117
+        http://generator.sturgeon.mopaas.com/quickstart.html
+        http://generator.sturgeon.mopaas.com/configreference/table.html
+        http://www.jianshu.com/p/e09d2370b796
+
+    Resources address of MyBatis Generator
+        https://github.com/mybatis/generator
+-->
+
+<generatorConfiguration>
+
+    <!--Load local configuration-->
+    <!--Property of resource in  properties tag  will find specific file in classpath -->
+    <properties resource="generatorConfig.properties"/>
+
+    <!--
+        If you start this app with mvn command ,you must add the flowing configuration.
+        <classPathEntry location="src\main\resources\mysql-connector-java-5.1.34.jar" />
+    -->
+
+    <context id="TablesInMoneyNote" targetRuntime="MyBatis3">
+        <!-- beginningDelimiter和endingDelimiter：指明数据库的用于标记数据库对象名的符号，比如ORACLE就是双引号，MYSQL默认是`反引号； -->
+        <!--<property name="beginningDelimiter" value="`"/>-->
+        <!--<property name="endingDelimiter" value="`"/>-->
+
+
+
+        <!--可以在PropertyRegistry.java类中查看到有哪些属性名-->
+
+        <!--
+            如果你是用mvn命令的方式启动(使用mybatis-generator-maven-plugin插件)，javaFileEncoding 这个配置不起作用.
+            mvn命令如下：
+                mvn mybatis-generator:generate
+                or
+                mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate
+
+            通过这个属性设置要使用的Java文件的编码。 新生成的Java文件会用这个编码写入到文件系统。
+            如果Java文件已经存在并且可以使用这个编码进行读取，就会执行合并操作。 如果没有指定，就会使用平台的默认编码
+       -->
+        <property name="javaFileEncoding" value="${javaFileEncoding}"/>
+
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+        <plugin type="${pagination.plugin}" />
+
+        <commentGenerator type="${customize.comment.generator.class}">
+
+            <!--<commentGenerator >-->
+            <property name="suppressDate" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <!--<property name="suppressAllComments" value="true"/>-->
+        </commentGenerator>
+
+        <!--数据库链接URL，用户名、密码 -->
+        <jdbcConnection driverClass="${jdbc.connection.driver}" connectionURL="${jdbc.connection.url}"
+                        userId="${jdbc.connection.username}" password="${jdbc.connection.password}">
+        </jdbcConnection>
+
+        <!-- java类型处理器
+            用于处理DB中的类型到Java中的类型，默认使用JavaTypeResolverDefaultImpl；
+            注意一点，默认会先尝试使用Integer，Long，Short等来对应DECIMAL和 NUMERIC数据类型；
+        -->
+        <javaTypeResolver type="org.mybatis.generator.internal.types.JavaTypeResolverDefaultImpl">
+            <!--
+                true：使用BigDecimal对应DECIMAL和 NUMERIC数据类型
+                false：默认,
+                    scale>0;length>18：使用BigDecimal;
+                    scale=0;length[10,18]：使用Long；
+                    scale=0;length[5,9]：使用Integer；
+                    scale=0;length<5：使用Short；
+             -->
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+
+        <!--Java模型生成器(生成模型的包名和位置)  -->
+        <!--Java模型生成器应该使用子包。 这意味着在这种情况下生成的模型对象将被放置在名为 test.model.money_note 的包中（因为表在 money_note schema中）。 -->
+        <!--如果 enableSubPackages 属性设置为 false， 那么包名将会是 test.model。 Java模型生成器也应该对字符串进行trim操作。 -->
+        <!--这意味着任何字符串属性的setter方法将调用trim方法 - 如果您的数据库可能会在字符末尾返回空白符，这是非常有用的。-->
+        <javaModelGenerator targetPackage="${model.target.package}" targetProject="${projectDir}\${targetProject}">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!--SQL映射生成器(生成映射文件的包名和位置)-->
+        <sqlMapGenerator targetPackage="${sqlMapXml.target.package}"  targetProject="${projectDir}\${targetProject}">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!--DAO生成器(生成DAO的包名和位置)-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="${javaMapper.target.package}"  targetProject="${projectDir}\${targetProject}">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+
+        <!-- 要生成哪些表-->
+        <table tableName="t_user" domainObjectName="User"  enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"
+
+        >
+            <!--useActualColumnNames设置为false表示：不使用数据表中的字段名作为实体对象的属性名，实体对象的属性名默认采用驼峰命名法命名-->
+            <property name="useActualColumnNames" value="false"/>
+
+            <!--当sqlStatement="JDBC"，只有当目标运行为MyBatis3时才会产生正确的代码-->
+            <generatedKey column="user_id" sqlStatement="JDBC" identity="true" />
+        </table>
+
+        <table tableName="t_login_log" domainObjectName="LoginLog"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--useActualColumnNames设置为false表示：不使用数据表中的字段名作为实体对象的属性名，实体对象的属性名默认采用驼峰命名法命名-->
+            <property name="useActualColumnNames" value="false"/>
+
+            <!--当sqlStatement="JDBC"，只有当目标运行为MyBatis3时才会产生正确的代码-->
+            <generatedKey column="id" sqlStatement="JDBC" identity="true" />
+        </table>
+
+        <table tableName="t_mn_item" domainObjectName="MnItem"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--useActualColumnNames设置为false表示：不使用数据表中的字段名作为实体对象的属性名，实体对象的属性名默认采用驼峰命名法命名-->
+            <property name="useActualColumnNames" value="false"/>
+
+            <!--当sqlStatement="JDBC"，只有当目标运行为MyBatis3时才会产生正确的代码-->
+            <generatedKey column="item_id" sqlStatement="JDBC" identity="true" />
+        </table>
+
+        <table tableName="t_mn_cate" domainObjectName="MnCate"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--useActualColumnNames设置为false表示：不使用数据表中的字段名作为实体对象的属性名，实体对象的属性名默认采用驼峰命名法命名-->
+            <property name="useActualColumnNames" value="false"/>
+
+            <!--当sqlStatement="JDBC"，只有当目标运行为MyBatis3时才会产生正确的代码-->
+            <generatedKey column="cate_id" sqlStatement="JDBC" identity="true" />
+        </table>
+
+        <!--<table tableName="t_login_log" domainObjectName="LoginLog"-->
+        <!--escapeWildcards="true"-->
+        <!--&gt;-->
+        <!--<property name="useActualColumnNames" value="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="t_user" tableName="ALLTYPES" domainObjectName="User" >-->
+        <!--<property name="useActualColumnNames" value="true"/>-->
+        <!--<generatedKey column="ID" sqlStatement="DB2" identity="true" />-->
+        <!--<columnOverride column="DATE_FIELD" property="startDate" />-->
+        <!--<ignoreColumn column="FRED" />-->
+        <!--<columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />-->
+        <!--</table>-->
+
+    </context>
+</generatorConfiguration>

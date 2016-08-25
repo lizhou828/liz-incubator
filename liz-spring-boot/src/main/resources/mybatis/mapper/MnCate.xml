@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liz.incubator.mapper.MnCateMapper">
+    <!--<cache type="com.yyw.yhyc.cache.LoggingRedisCache"-->
+    <!--flushInterval="86400000" size="1024000">-->
+    <!--</cache>-->
+    <resultMap id="MnCateResultMapper" type="com.liz.incubator.model.MnCate">
+        <result column="cate_id" property="cateId"/>
+        <result column="cate_name" property="cateName"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="sort_order" property="sortOrder"/>
+    </resultMap>
+
+    <sql id="commonColumns">
+        cate_id,
+        cate_name,
+        parent_id,
+        sort_order
+    </sql>
+
+    <sql id="commonColumnsNotPK">
+        cate_name,
+        parent_id,
+        sort_order
+    </sql>
+
+
+    <sql id="commonProcessDateColumns">
+        cate_id,
+        cate_name,
+        parent_id,
+        sort_order
+    </sql>
+
+    <sql id="commonCondition">
+        <if test="cateName!= null and cateName!= ''">
+            AND cate_name = #{cateName}
+        </if>
+        <if test="parentId!= null and parentId!= ''">
+            AND parent_id = #{parentId}
+        </if>
+        <if test="sortOrder!= null and sortOrder!= ''">
+            AND sort_order = #{sortOrder}
+        </if>
+    </sql>
+
+
+    <insert id="save" parameterType="com.liz.incubator.model.MnCate">
+        <![CDATA[ INSERT INTO t_mn_cate ( ]]> <include refid="commonColumnsNotPK"/>
+        <![CDATA[
+                ) VALUES (
+                #{cateName},
+                #{parentId},
+                #{sortOrder}
+      ) ]]>
+    </insert>
+
+    <update id="update" parameterType="com.liz.incubator.model.MnCate">
+        <![CDATA[ UPDATE t_mn_cate SET
+         cate_id = #{cateId}
+
+        <if test="cateName!= null and cateName!= ''">
+            , cate_name = #{cateName}
+        </if>
+        <if test="parentId!= null and parentId!= ''">
+            , parent_id = #{parentId}
+        </if>
+        <if test="sortOrder!= null and sortOrder!= ''">
+            , sort_order = #{sortOrder}
+        </if>
+
+        WHERE cate_id = #{cateId} ]]>
+    </update>
+
+
+    <delete id="deleteByPK" parameterType="java.lang.Integer">
+        <![CDATA[ DELETE FROM t_mn_cate
+        WHERE cate_id = #{cateId} ]]>
+    </delete>
+
+    <delete id="deleteByPKeys" parameterType="map">
+        DELETE FROM t_mn_cate WHERE
+        <foreach collection="primaryKeys" index="index" item="id" open=" cate_id IN(" separator="," close=") ">
+            ${id}
+        </foreach>
+    </delete>
+
+    <delete id="deleteByProperty" parameterType="com.liz.incubator.model.MnCate">
+        DELETE FROM t_mn_cate WHERE 1 = 1
+        <include refid="commonCondition"/>
+    </delete>
+
+    <select id="getByPK" parameterType="java.lang.Integer" resultMap="MnCateResultMapper">
+        <![CDATA[ SELECT ]]> <include refid="commonProcessDateColumns"/>
+        FROM t_mn_cate WHERE cate_id = #{cateId}
+    </select>
+
+    <select id="list" resultMap="MnCateResultMapper">
+        <![CDATA[ SELECT ]]> <include refid="commonProcessDateColumns"/>
+        FROM t_mn_cate
+    </select>
+
+    <select id="listByProperty" parameterType="com.liz.incubator.model.MnCate" resultMap="MnCateResultMapper">
+        <![CDATA[ SELECT ]]> <include refid="commonProcessDateColumns"/>
+        FROM t_mn_cate WHERE 1=1
+        <include refid="commonCondition"/>
+    </select>
+
+    <select id="findByCount" parameterType="com.liz.incubator.model.MnCate" resultType="int">
+        SELECT count(1) AS totalcount FROM t_mn_cate WHERE 1=1
+        <include refid="commonCondition"/>
+    </select>
+
+    <select id="findByPagination" parameterType="com.liz.incubator.model.MnCate" resultMap="MnCateResultMapper">
+        SELECT <include refid="commonProcessDateColumns"/>
+        FROM t_mn_cate WHERE 1=1
+        <include refid="commonCondition"/>
+    </select>
+
+</mapper>

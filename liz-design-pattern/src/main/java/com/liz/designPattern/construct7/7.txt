@@ -1,0 +1,18 @@
+原创文章，转载请注明出处：http://www.cnblogs.com/beijiguangyong/
+
+
+结构型
+
+6. Adapter Class/Object（适配器）
+
+7. Bridge（桥接）
+
+8. Composite（组合）
+
+9. Decorator（装饰）
+
+10. Facade（外观）
+
+11. Flyweight（享元）
+
+12. Proxy（代理）
