@@ -1,12 +1,12 @@
-liz
+liz-incubator
 ==========
 
 ###What's in it ?
 
-    liz-api , liz-app, liz-blog , liz-service ,liz-common ,liz-incubator ,liz-web , liz-weixin and moneyNote.
+    liz-blank-web , liz-design-pattern, liz-GenCode , liz-rapid-framework ,liz-spring-boot,multipleTread,ocjp-java6
 
 ---
 
-###Software environment:
+###Software runtime environment:
 
     JDK 8 and Tomcat 7 .
