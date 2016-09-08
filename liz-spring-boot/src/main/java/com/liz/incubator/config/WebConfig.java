@@ -12,6 +12,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class WebConfig {
 
+    /**
+     * spring boot 接入 自定义的过滤器
+     * @param myFilter
+     * @return
+     */
     @Bean
     public FilterRegistrationBean filterRegistrationBean(MyFilter myFilter){
         FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();

@@ -7,11 +7,12 @@
         <version>1.2.6.RELEASE</version>
     </parent>
 
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.liz</groupId>
-  <artifactId>liz-incubator</artifactId>
-  <packaging>pom</packaging>
-  <version>1.0.0</version>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.liz</groupId>
+    <artifactId>liz-incubator</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+    <name>liz-incubator</name>
     <modules>
         <module>liz-GenCode</module>
         <module>liz-rapid-framework</module>
@@ -21,7 +22,7 @@
         <module>liz-design-pattern</module>
         <module>liz-spring-boot</module>
     </modules>
-    <name>liz</name>
+
   <url>http://maven.apache.org</url>
 
     <!-- public remote repositories -->

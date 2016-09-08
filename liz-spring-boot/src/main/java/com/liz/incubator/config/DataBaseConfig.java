@@ -87,7 +87,7 @@ public class DataBaseConfig {
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:/mybatis/mapper/*.xml"));
 
-        /* 配置拦截器 */
+        /* 配置持久层的sql拦截器 */
         Interceptor interceptor = new PaginationInterceptor();
         Interceptor[] interceptors = new Interceptor[]{interceptor};
         sqlSessionFactoryBean.setPlugins(interceptors);
