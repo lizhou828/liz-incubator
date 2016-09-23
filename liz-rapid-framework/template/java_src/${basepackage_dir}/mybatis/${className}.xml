@@ -61,7 +61,7 @@
         <![CDATA[ UPDATE ${tableName} SET
 <#list table.columns as column>
     <#if column.pk>
-         ${column.sqlName} = ${r"#{" + column.columnNameLower + r"}"}
+         ${column.sqlName} = ${r"#{" + column.columnNameLower + r"}"} ]]>
     </#if>
 </#list>
 
@@ -75,7 +75,7 @@
 
 <#list table.columns as column>
     <#if column.pk>
-        WHERE ${column.sqlName} = ${r"#{" + column.columnNameLower + r"}"} ]]>
+      <![CDATA[  WHERE ${column.sqlName} = ${r"#{" + column.columnNameLower + r"}"} ]]>
     </#if>
 </#list>
     </update>
