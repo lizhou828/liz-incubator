@@ -91,14 +91,14 @@
     </delete>
 
     <delete id="deleteByPKeys" parameterType="map">
-    DELETE FROM ${tableName} WHERE
-<#list table.columns as column>
-    <#if column.pk>
-    <foreach collection="primaryKeys" index="index" item="id" open=" ${column.sqlName} IN(" separator="," close=") ">
-        ${r"${id}"}
-    </foreach>
-    </#if>
-</#list>
+        DELETE FROM ${tableName} WHERE
+    <#list table.columns as column>
+        <#if column.pk>
+        <foreach collection="primaryKeys" index="index" item="id" open=" ${column.sqlName} IN(" separator="," close=") ">
+            ${r"${id}"}
+        </foreach>
+        </#if>
+    </#list>
     </delete>
 
     <delete id="deleteByProperty" parameterType="${basepackage}.model.${className}">
@@ -107,7 +107,7 @@
     </delete>
 
     <select id="getByPK" parameterType="java.lang.Integer" resultMap="${className}ResultMapper">
-    <![CDATA[ SELECT ]]> <include refid="commonProcessDateColumns"/>
+        SELECT <include refid="commonProcessDateColumns"/>
 <#list table.columns as column>
     <#if column.pk>
         FROM ${tableName} WHERE ${column.sqlName} = ${r"#{" + column.columnNameLower + r"}"}
@@ -116,12 +116,12 @@
     </select>
 
     <select id="list" resultMap="${className}ResultMapper">
-        <![CDATA[ SELECT ]]> <include refid="commonProcessDateColumns"/>
+        SELECT  <include refid="commonProcessDateColumns"/>
         FROM ${tableName}
     </select>
 
     <select id="listByProperty" parameterType="${basepackage}.model.${className}" resultMap="${className}ResultMapper">
-        <![CDATA[ SELECT ]]> <include refid="commonProcessDateColumns"/>
+        SELECT  <include refid="commonProcessDateColumns"/>
         FROM ${tableName} WHERE 1=1
         <include refid="commonCondition"/>
     </select>
