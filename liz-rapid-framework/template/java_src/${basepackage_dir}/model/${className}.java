@@ -6,6 +6,9 @@ package ${basepackage}.model;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ *
+ */
 public class ${className} implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -13,24 +16,26 @@ public class ${className} implements Serializable {
 <#list table.columns as c>
     /* ${c.remarks} */
     private ${c.javaType} ${c.columnNameLower};
+
 </#list>
 
 <#list table.columns as c>
-    /* ${c.remarks} */
+    /* get ${c.remarks} */
     public ${c.javaType} get${c.columnNameUpper}() {
         return ${c.columnNameLower};
     }
-    /* ${c.remarks} */
+
+    /* set ${c.remarks} */
     public void set${c.columnNameUpper}(${c.javaType} ${c.columnNameLower}) {
         this.${c.columnNameLower} = ${c.columnNameLower};
     }
 </#list>
 
     public String toString() {
-        return "${className} [" +
+        return "${className} {" +
             <#list table.columns as column>
-                ", ${column.columnNameLower}" + ${column.columnNameLower} +
+                " , ${column.columnNameLower} = " + ${column.columnNameLower} +
             </#list>
-            "]";
+            "}";
         }
 }
