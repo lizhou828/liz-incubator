@@ -21,6 +21,15 @@ public class ReflectionDemo1Main {
         Class<?> dogClass1 = Dog.class;
         Class<?> dogClass2 = Class.forName("com.liz.ocjpJava6.advanced.reflection.demo1.Dog");
 
+
+        System.out.println("====================调用指定函数  开始====================\n");
+        System.out.println(dog);
+        Method setAgeMethod = dogClass.getMethod("setAge",int.class);
+        setAgeMethod.invoke(dog,2);
+        System.out.println(dog);
+        System.out.println("====================调用指定函数  结束====================\n");
+
+
         Method[] methods1 = dogClass.getMethods();
         System.out.println("====================通过getMethods取得方法开始====================");
         for (Method method : methods1) {
