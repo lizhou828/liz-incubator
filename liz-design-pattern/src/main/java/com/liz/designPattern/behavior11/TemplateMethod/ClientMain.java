@@ -1,4 +1,4 @@
-package com.liz.designPattern.behavior11.Template_Method;
+package com.liz.designPattern.behavior11.TemplateMethod;
 
 import java.io.BufferedReader;
 import java.io.IOException;
