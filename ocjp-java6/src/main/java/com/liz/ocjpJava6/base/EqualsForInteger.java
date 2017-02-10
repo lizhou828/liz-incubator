@@ -3,7 +3,7 @@ package com.liz.ocjpJava6.base;
 import java.lang.reflect.Field;
 
 /**
- * Created by lizhou on 2017/2/9.
+ * Created by lizhou on 2017/2/9
  */
 public class EqualsForInteger {
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
