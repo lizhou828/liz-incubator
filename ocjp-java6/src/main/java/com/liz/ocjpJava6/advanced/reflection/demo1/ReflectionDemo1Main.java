@@ -48,8 +48,12 @@ public class ReflectionDemo1Main {
         dogClass = Dog.class;
         Method[] methods = dogClass.getDeclaredMethods();
         for (Method method : methods) {
+//            System.out.println("函数名："+method.getName() +"        函数类型："+ method.getModifiers()
+//                    + "         函数返回： "+ method.getReturnType() + "        函数参数个数：" + method.getParameterCount() //Java8
+//            );
+
             System.out.println("函数名："+method.getName() +"        函数类型："+ method.getModifiers()
-                    + "         函数返回： "+ method.getReturnType() + "        函数参数个数：" + method.getParameterCount()
+                            + "         函数返回： "+ method.getReturnType()
             );
         }
         System.out.println("====================取得函数的一些基本信息结束====================\n");
