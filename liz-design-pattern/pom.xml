@@ -13,6 +13,7 @@
     <packaging>war</packaging>
     <name>liz-design-pattern Maven Webapp</name>
     <url>http://maven.apache.org</url>
+    <version>1.0.0-SNAPSHOT</version>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -20,6 +21,14 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/cglib/cglib -->
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>3.2.4</version>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>liz-design-pattern</finalName>
