@@ -9,6 +9,8 @@ import java.lang.reflect.Method;
 
 /**
  * 动态代理，使用cglib实现
+ * http://www.cnblogs.com/best/p/5679656.html
+ *
  * CGLIB(Code Generation Library)是一个开源项目,是一个强大的，高性能，高质量的Code生成类库，它可以在运行期扩展Java类与实现Java接口，通俗说cglib可以在运行时动态生成字节码。
  *
  * 先在项目中添加Cglib的依赖：

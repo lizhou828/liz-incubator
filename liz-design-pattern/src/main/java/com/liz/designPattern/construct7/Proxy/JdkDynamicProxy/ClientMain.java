@@ -5,7 +5,7 @@ import com.liz.designPattern.construct7.Proxy.Math;
 /**
  *
  * JDK提供的动态代理 场景类
- *
+ * http://www.cnblogs.com/best/p/5679656.html
  *
 小结：
 

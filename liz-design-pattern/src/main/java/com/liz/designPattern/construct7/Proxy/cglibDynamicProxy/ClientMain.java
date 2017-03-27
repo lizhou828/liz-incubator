@@ -4,6 +4,7 @@ import com.liz.designPattern.construct7.Proxy.Math;
 
 /**
  * Created by lizhou on 2017年03月26日 21时59分
+ * http://www.cnblogs.com/best/p/5679656.html
  */
 public class ClientMain {
     public static void main(String[] args) {
