@@ -55,5 +55,9 @@ public class Test {
         Test test = new Test();
         test.method();
 
+        Integer i = 1258;
+        int ii = 1258;
+        System.out.println("Autoboxing result = " + (i == ii) );
+
     }
 }
