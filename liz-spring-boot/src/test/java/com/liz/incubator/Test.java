@@ -57,7 +57,7 @@ public class Test {
 
         Integer i = 1258;
         int ii = 1258;
-        System.out.println("Autoboxing result = " + (i == ii) );
+        System.out.println("Auto Unboxing result = " + (i == ii) );
 
     }
 }
