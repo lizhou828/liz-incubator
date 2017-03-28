@@ -21,6 +21,7 @@
         <module>liz-blank-web</module>
         <module>liz-design-pattern</module>
         <module>liz-spring-boot</module>
+        <module>x_memory</module>
     </modules>
 
   <url>http://maven.apache.org</url>
