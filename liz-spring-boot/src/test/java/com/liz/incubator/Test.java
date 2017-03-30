@@ -38,7 +38,6 @@ public class Test {
 //        科学计数法
         System.out.println(10E-6 == 0.00001);
         System.out.println(1E-5 == 0.00001);
-
         System.out.println("====================================================================================");
 
         String [] strings = {"1" ,"ad" ,"nba", "cba","usa","uk","china"};
@@ -49,15 +48,33 @@ public class Test {
             }
             System.out.println(strings[i]);
         }
-
         System.out.println("====================================================================================");
 
         Test test = new Test();
         test.method();
+        System.out.println("====================================================================================");
 
         Integer i = 1258;
         int ii = 1258;
         System.out.println("Auto Unboxing result = " + (i == ii) );
+        System.out.println("====================================================================================");
+
+
+        List<String> list = new ArrayList<String>();
+        list.add("aaaaa");
+        list.add("bbbbb");
+        list.add("ccccc");
+        list.add("ddddd");
+        System.out.println(list);
+        for(String str : list){
+            if("ccccc".equals(str)){
+                list.remove(str);
+            }
+        }
+        System.out.println(list);
+        System.out.println("====================================================================================");
+
+
 
     }
 }
