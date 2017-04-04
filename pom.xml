@@ -21,6 +21,7 @@
         <module>liz-blank-web</module>
         <module>liz-design-pattern</module>
         <module>liz-spring-boot</module>
+        <module>x_memory</module>
         <module>liz-rabbitMQ</module>
     </modules>
 
