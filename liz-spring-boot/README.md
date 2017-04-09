@@ -1,9 +1,9 @@
-liz-incubator
-==========
+liz-spring-boot
+===============
 
 ### What's in it ?
 
-    liz-spring-boot
+    java web application
 
 ---
 
@@ -16,3 +16,6 @@ liz-incubator
 ### Framework:
 
     Spring-boot 1.2.6.RELEASE .
+    mybatis 3.2.8
+    druid 1.0.13
+    jedis 2.7.3
