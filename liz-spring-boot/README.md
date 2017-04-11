@@ -19,3 +19,7 @@ liz-spring-boot
     mybatis 3.2.8
     druid 1.0.13
     jedis 2.7.3
+
+### How to run this app ?
+
+    Please read pom.xml file in this application
