@@ -74,6 +74,9 @@ public class Test {
         System.out.println(list);
         System.out.println("====================================================================================");
 
+        Double a = 250.976D;
+        Double b = 0.0D;
+        System.out.println(a-b);
 
 
     }
