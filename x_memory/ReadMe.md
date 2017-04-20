@@ -1,10 +1,16 @@
-====
-This module is used to memory something that's important to you   based on The  H.Ebbinghaus Forgetting Curve.
+# ReadMe
 
-Something like knowledge of computer,program,software , other domain ,etc. Especially you are not familiar with it.
+    This module is used to memory something that's important to you   based on The  H.Ebbinghaus Forgetting Curve.
 
------
-The architecture of this module as below:
+    short memory: 5min 30min 12hours
+    long  memory: 1day 2day 4day 7day  15day 30day
+
+# Domain
+
+    Something like knowledge of computer,program,software , other domain ,etc. Especially you are not familiar with it.
+
+
+# The architecture of this module as below:
 
     core:   push message on time based on The  H.Ebbinghaus Forgetting Curve.
 
@@ -20,9 +26,10 @@ The architecture of this module as below:
                 analyze requirement
                 analyze technology
 
-业务模块
-1、记单词
-    调用百度的接口，或者抓百度的网页
+# 业务模块
 
-2、知识、技术
+    1、记单词
+        调用百度的接口，或者抓百度的网页
+
+    2、知识、技术
 
