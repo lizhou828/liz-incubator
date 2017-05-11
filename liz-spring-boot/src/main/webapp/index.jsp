@@ -11,6 +11,6 @@
     <title></title>
   </head>
   <body>
-  index.jsp!
+  Welcome index.jsp of Spring-boot !
   </body>
 </html>

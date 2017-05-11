@@ -5,6 +5,12 @@
     short memory: 5min 30min 12hours
     long  memory: 1day 2day 4day 7day  15day 30day
 
+# Framework info
+
+    Spring 4.3.5.RELEASE
+    quartz 2.2.3
+
+
 # Domain
 
     Something like knowledge of computer,program,software , other domain ,etc. Especially you are not familiar with it.
