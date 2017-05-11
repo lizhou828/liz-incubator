@@ -11,11 +11,12 @@
             http://www.springframework.org/schema/context
             http://www.springframework.org/schema/context/spring-context-4.0.xsd
             http://www.springframework.org/schema/task
-            http://www.springframework.org/schema/task/spring-task-4.0.xsd">
+            http://www.springframework.org/schema/task/spring-task-4.0.xsd"
+        >
 
     <context:annotation-config/>
 
-    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+    <bean id="mysqlDataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://127.0.0.1:3306/money_note"/>
         <property name="username" value="root"/>
@@ -33,7 +34,7 @@
         <!-- 最小逐出时间 -->
         <property name="minEvictableIdleTimeMillis" value="300000"/>
         <!-- 测试有效用的SQL Query -->
-        <property name="validationQuery" value="SELECT 'x'"/>
+        <property name="validationQuery" value="select 1 from DUAL"/>
         <!-- 连接空闲时测试是否有效 -->
         <property name="testWhileIdle" value="true"/>
         <!-- 获取连接时测试是否有效 -->
@@ -44,7 +45,6 @@
 
     <!-- 声明工厂 -->
     <bean id="scheduler" autowire="no" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:quartz.properties"/>
         <!--applicationContextSchedulerContextKey：
         是org.springframework.scheduling.quartz.SchedulerFactoryBean这个类中

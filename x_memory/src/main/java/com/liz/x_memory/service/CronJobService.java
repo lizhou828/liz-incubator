@@ -60,7 +60,7 @@ public class CronJobService {
           trigger = TriggerBuilder.newTrigger()
                   .withIdentity(job.getJobName(), job.getJobGroup())
                   .withSchedule(scheduleBuilder).build();
-
+            scheduler.scheduleJob(jobDetail, trigger);
 
         } else {
             System.out.println("reset");

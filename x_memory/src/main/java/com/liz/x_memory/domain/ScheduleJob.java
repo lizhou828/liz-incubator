@@ -16,17 +16,28 @@ import java.util.Date;
  * @Date 2017年05月11日 14时14分
  */
 public class ScheduleJob implements Serializable{
-
-    private static final long serialVersionUID = 2937425732036853893L;
-
+    private static final long serialVersionUID = 3305520099523335732L;
+    /* 公共参数 */
     private String jobId;
     private String jobName;
     private String jobGroup;
     private String jobStatus;
-    private String cronExpression;
-    private Date startTime;
     private String desc;
     private Object data;
+
+    /* SimpleJob */
+    /* 开始执行时间 */
+    private Date startTime;
+    /* 重复间隔(单位;秒，如果该字段不填，默认只执行一次任务) */
+    private int timeInterval;
+    /* 重复次数 （-1表示执行次数：无限重复）*/
+    private int repeatCount;
+
+
+
+    /* ComplexJob */
+    /* cron表达式 */
+    private String cronExpression;
 
     public String getJobId() {
         return jobId;
@@ -92,6 +103,22 @@ public class ScheduleJob implements Serializable{
         this.data = data;
     }
 
+    public int getTimeInterval() {
+        return timeInterval;
+    }
+
+    public void setTimeInterval(int timeInterval) {
+        this.timeInterval = timeInterval;
+    }
+
+    public int getRepeatCount() {
+        return repeatCount;
+    }
+
+    public void setRepeatCount(int repeatCount) {
+        this.repeatCount = repeatCount;
+    }
+
     @Override
     public String toString() {
         return "ScheduleJob{" +
@@ -99,10 +126,12 @@ public class ScheduleJob implements Serializable{
                 ", jobName='" + jobName + '\'' +
                 ", jobGroup='" + jobGroup + '\'' +
                 ", jobStatus='" + jobStatus + '\'' +
-                ", cronExpression='" + cronExpression + '\'' +
-                ", startTime=" + startTime +
                 ", desc='" + desc + '\'' +
                 ", data=" + data +
+                ", startTime=" + startTime +
+                ", timeInterval=" + timeInterval +
+                ", repeatCount=" + repeatCount +
+                ", cronExpression='" + cronExpression + '\'' +
                 '}';
     }
 }

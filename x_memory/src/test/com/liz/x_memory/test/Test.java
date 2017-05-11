@@ -9,6 +9,7 @@ package com.liz.x_memory.test;
 
 import com.liz.x_memory.domain.ScheduleJob;
 import com.liz.x_memory.job.MyJob;
+import com.liz.x_memory.service.CronJobService;
 import com.liz.x_memory.service.SimpleJobService;
 import org.quartz.SchedulerException;
 
@@ -28,15 +29,15 @@ import java.util.Date;
  */
 public class Test {
 
-    public static void getJobDataFromQueue(){
+    public static void simpleJobTest(){
         ScheduleJob job = new ScheduleJob();
         job.setJobId("10001" );
         job.setJobName("test1");
         job.setJobGroup("test-group");
-        //时间可以自己设置
         job.setStartTime(new Date());
         job.setData("这里是传入job的数据");
-
+        job.setTimeInterval(5);//每隔5秒执行一次
+        job.setRepeatCount(1);//-1表示执行次数：无限重复
         try {
             SimpleJobService.addOrUpdateJob(job, MyJob.class);
         } catch (SchedulerException e) {
@@ -44,7 +45,23 @@ public class Test {
         }
     }
 
+    public static void cronJobTest(){
+        ScheduleJob job = new ScheduleJob();
+        job.setJobId("10001");
+        job.setJobName("test1");
+        job.setJobGroup("test-group");
+        job.setStartTime(new Date());
+        job.setData("这里是传入job的数据");
+        job.setCronExpression("30 * * * * ? ");//每分钟的第30秒执行(更多的cron表达式请见本项目下的cronExpression.md文件 )
+        try {
+            CronJobService.addOrUpdateJob(job, MyJob.class);
+        } catch (SchedulerException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
-        getJobDataFromQueue();
+//        simpleJobTest();
+        cronJobTest();
     }
 }

@@ -13,6 +13,7 @@ import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -30,8 +31,8 @@ public class MyJob implements Job{
         //在任务里 可以通过getJobDataMap()传自己需要用的一些数据
         JobDataMap jdm = context.getJobDetail().getJobDataMap();
         //TODO
-        System.out.println(jdm.get("data"));
-        System.out.println("strat" + (new Date().getTime()));
+        String now = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss,sss").format(new Date());
+        System.out.println("now:"+now+ "    data:" + jdm.get("data"));
     }
 
 }

@@ -37,11 +37,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class SimpleJobService {
 
-    /* 重复间隔(单位;秒) */
-    private static final int TIME_INTERVAL = 10;
-
-    /* 重复次数 */
-    private static final int REPEAT_COUNT = -1;
 
     static ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
     static Scheduler scheduler = (Scheduler) context.getBean("scheduler");
@@ -66,8 +61,8 @@ public class SimpleJobService {
 
             // 表达式调度构建器
             ScheduleBuilder<?> scheduleBuilder = SimpleScheduleBuilder.simpleSchedule()
-                    .withIntervalInSeconds(TIME_INTERVAL)//重复间隔
-                    .withRepeatCount(REPEAT_COUNT);// 重复次数
+                    .withIntervalInSeconds(job.getTimeInterval())//重复间隔(单位;秒)
+                    .withRepeatCount(job.getRepeatCount());// 重复次数
 
             // 构建一个新的trigger
             trigger = (SimpleTriggerImpl) TriggerBuilder.newTrigger()
@@ -82,8 +77,8 @@ public class SimpleJobService {
             // Trigger已存在，那么更新相应的定时设置
             // 表达式调度构建器
             ScheduleBuilder<?> scheduleBuilder = SimpleScheduleBuilder.simpleSchedule()
-                    .withIntervalInSeconds(TIME_INTERVAL)
-                    .withRepeatCount(REPEAT_COUNT);
+                    .withIntervalInSeconds(job.getTimeInterval())//重复间隔(单位;秒)
+                    .withRepeatCount(job.getRepeatCount());// 重复次数
 
             // 重新构建trigger
             trigger = (SimpleTriggerImpl) TriggerBuilder.newTrigger()
