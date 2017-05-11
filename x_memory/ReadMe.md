@@ -9,6 +9,11 @@
 
     Spring 4.3.5.RELEASE
     quartz 2.2.3
+    
+    quartz定时任务必须搞清楚几个概念：
+    JobDetail——处理类
+    Trigger——触发器，指定触发时间，必须要有JobDetail属性，即触发对象
+    Scheduler——调度器，组织处理类和触发器，配置方式一般只需指定触发器（因为触发器已经指定了对应的处理类），代码方式则需同时指定触发对象和触发器。
 
 
 # Domain
