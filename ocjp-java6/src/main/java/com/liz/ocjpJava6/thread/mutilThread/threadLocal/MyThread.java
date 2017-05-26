@@ -21,6 +21,7 @@ public class MyThread extends Thread{
 
     @Override
     public void run() {
+        System.out.println(">>>>>:" + myThreadLocal);
         for(int i = 0 ;i< 3 ;i++){
             System.out.println(Thread.currentThread().getName() + "," + myThreadLocal.getBean() + "," + myThreadLocal.getBean().showInfo());
         }

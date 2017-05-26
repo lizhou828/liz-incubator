@@ -25,6 +25,11 @@ public class ClientMain {
         t4.start();
 
         // 运行结果如下：
+//        >>>>>:MyThreadLocal{threadLocal=com.liz.ocjpJava6.thread.mutilThread.threadLocal.MyThreadLocal$1@10324ec5}
+//        >>>>>:MyThreadLocal{threadLocal=com.liz.ocjpJava6.thread.mutilThread.threadLocal.MyThreadLocal$1@10324ec5}
+//        >>>>>:MyThreadLocal{threadLocal=com.liz.ocjpJava6.thread.mutilThread.threadLocal.MyThreadLocal$1@10324ec5}
+//        >>>>>:MyThreadLocal{threadLocal=com.liz.ocjpJava6.thread.mutilThread.threadLocal.MyThreadLocal$1@10324ec5}
+
 //        Thread-1,com.liz.ocjpJava6.thread.mutilThread.threadLocal.Bean@1d51f311,Bean{id='0', name='none'}
 //        Thread-1,com.liz.ocjpJava6.thread.mutilThread.threadLocal.Bean@1d51f311,Bean{id='0', name='none'}
 //        Thread-1,com.liz.ocjpJava6.thread.mutilThread.threadLocal.Bean@1d51f311,Bean{id='0', name='none'}
@@ -42,6 +47,9 @@ public class ClientMain {
 //        Thread-2,com.liz.ocjpJava6.thread.mutilThread.threadLocal.Bean@120f6563,Bean{id='0', name='none'}
 
 //        可以看出，4个线程有各自独立的实例的副本，互不影响
+
+//        从打印结果很清楚的看到，不管多少个线程进来, myThreadLocal始终只有一个，MyThreadLocal的threadLocal对象始终是一个，
+//        但是，将myThreadLocal 给每个线程用的时候，线程会重新创建Bean对象加入到ThreadLocal的Map中去使用。
 
     }
 }
