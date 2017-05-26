@@ -19,7 +19,7 @@ import java.util.Map;
  */
 public class MyThreadLocal {
 
-    //定义了一个ThreadLocal变量，用来保存int或Integer数据
+    //定义了一个ThreadLocal变量，用来保存数据
     private ThreadLocal<Bean> threadLocal = new ThreadLocal<Bean>(){
         @Override
         protected Bean initialValue() {
@@ -47,7 +47,30 @@ class ThreadLocal<T>{
     public ThreadLocal() {
     }
 
+
+
+    /**
+     * 关于initialValue 这个方法 ，java源码中的描述如下：
+     *
+     * Returns the current thread's "initial value" for this
+     * thread-local variable.  This method will be invoked the first
+     * time a thread accesses the variable with the {@link #get}
+     * method, unless the thread previously invoked the {@link #set}
+     * method, in which case the {@code initialValue} method will not
+     * be invoked for the thread.  Normally, this method is invoked at
+     * most once per thread, but it may be invoked again in case of
+     * subsequent invocations of {@link #remove} followed by {@link #get}.
+     *
+     * <p>This implementation simply returns {@code null}; if the
+     * programmer desires thread-local variables to have an initial
+     * value other than {@code null}, {@code ThreadLocal} must be
+     * subclassed, and this method overridden.  Typically, an
+     * anonymous inner class will be used.
+     *
+     * @return the initial value for this thread-local
+     */
     protected T initialValue() {
+        //do nothing ，由外部去实现
         return null;
     }
 

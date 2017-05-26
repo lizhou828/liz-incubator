@@ -31,7 +31,7 @@
     ThreadLocal是如何做到为每一个线程维护变量的副本的呢？其实实现的思路很简单：在ThreadLocal类中有一个Map，用于存储每一个线程的变量副本，Map中元素的键为线程对象，而值对应线程的变量副本
     
     
-# Thread同步机制的比较
+# ThreadLocal 与 Thread同步机制的比较
     
     ThreadLocal和线程同步机制相比有什么优势呢？ThreadLocal和线程同步机制都是为了解决多线程中相同变量的访问冲突问题。
     
@@ -43,3 +43,19 @@
     由于ThreadLocal中可以持有任何类型的对象，低版本JDK所提供的get()返回的是Object对象，需要强制类型转换。但JDK 5.0通过泛型很好的解决了这个问题，在一定程度地简化ThreadLocal的使用。
     
     概括起来说，对于多线程资源共享的问题，同步机制采用了“以时间换空间”的方式，而ThreadLocal采用了“以空间换时间”的方式。前者仅提供一份变量，让不同的线程排队访问，而后者为每一个线程都提供了一份变量，因此可以同时访问而互不影响。
+    
+
+# ThreadLocal 一些使用场景
+ 
+    首先说明ThreadLocal存放的值是线程内共享的，线程间互斥的，主要用于线程内共享一些数据，避免通过参数来传递，这样处理后，能够优雅的解决一些实际问题。
+    比如hibernate中的OpenSessionInView，就是使用ThreadLocal保存Session对象，还有我们经常用ThreadLocal存放Connection
+    
+    
+# 为什么要用 ThreadLocal    
+    
+    首先要能清楚为什么要使用ThreadLocal，如果没有ThreadLocal，能不能解决问题。
+    
+    没有ThreadLocal的话，每个Thread中都有输入自己的一个本地变量，但是在整个Thread的生命中，如果要穿梭很多class的很多method来使用这个本地变量的话，就要一直一直向下传送这个变量，显然很麻烦。
+    那么怎么才能在这个Thread的生命中，在任何地方都能够方便的访问到这个变量呢，这时候ThreadLocal就诞生了。
+    
+    ThreadLocal就是这么个作用，除此之外和通常使用的本地变量没有任何区别。
