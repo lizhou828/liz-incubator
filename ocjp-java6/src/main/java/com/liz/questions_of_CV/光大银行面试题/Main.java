@@ -36,11 +36,9 @@ public class Main {
         String str1 = getSubStr("abcabc",0,1);
         String str2 = getSubStr("abcabc",3,4);
         System.out.println(str1 + "," + str2);
-        if(str1 == str2){
-            System.out.println("A");
-        }else{
-            System.out.println("B");
-        }
+        System.out.println("str1 == str2 ? " + (str1 == str2) +",查看String类的substring(int a,int b) 源码后可知，返回的是String对象，对象不能用 == 来判断是否相等");
+        System.out.println("str1.equals(str2) ? " +(str1.equals(str2)));
+
         System.out.println("==============================================");
 
         String a = "11";
