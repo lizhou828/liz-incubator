@@ -21,5 +21,8 @@ public class PlusPlus {
 //        a = 1;
 //        System.out.println(a++);//a++ 这个表达式的值是1，但是a的值是2
 //        System.out.println(++a);//前++之后，a先+1 ，++a的表达式值是3，a的值也是3
+
+        a = 5;
+        System.out.println(a-- - --a);//2
     }
 }
