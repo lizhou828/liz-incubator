@@ -182,7 +182,7 @@ public class DataTypeOfJava {
 //        \"	双引号
 //        \'	单引号
 //        \\	反斜杠
-//        \ddd	八进制字符 (ddd)
-//        \uxxxx	16进制Unicode字符 (xxxx)
+//        \\ddd	八进制字符 (ddd)
+//        \\uxxxx;	16进制Unicode字符 (xxxx)
     }
 }
