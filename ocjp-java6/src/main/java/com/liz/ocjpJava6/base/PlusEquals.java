@@ -3,7 +3,7 @@ package com.liz.ocjpJava6.base;
 /**
  * Created by Frank on 2017/2/7
  */
-public class Equals {
+public class PlusEquals {
     public static void main(String[] args) {
         byte a  = 127;
         byte b  = 127;
