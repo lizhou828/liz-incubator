@@ -9,6 +9,7 @@ package com.liz.ocjpJava6.base.variableArgumentType;
 
 /**
  * Java可变参数，及其与数组的区别
+ * 方法的参数个数可以不确定，用"..."定义
  * @author lizhou
  * @version 1.0
  * @Date 2018年01月30日 10时16分
