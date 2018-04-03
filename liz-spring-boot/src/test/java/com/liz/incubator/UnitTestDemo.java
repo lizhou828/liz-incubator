@@ -1,5 +1,6 @@
 package com.liz.incubator;
 
+import com.liz.incubator.controller.Application;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
