@@ -1,4 +1,4 @@
-package com.liz.incubator;
+package com.liz.incubator.controller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-#rapid-generator
+# rapid-generator
 
     rapid-framework简单介绍:
     
@@ -13,13 +13,13 @@
     
         rapid-framework是一个以spring为核心的项目脚手架(或者称为胶水框架)，框架将各个零散的框架(struts,strust2,springmvc,hibernate,ibatis,spring_jdbc,flex)搭建好，并内置一个代码生成器，辅助项目开发,可以生成java的hibernat model,dao,manager,struts+struts2 action类,可以生成jsp的增删改查及列表页面
 
-#Rapid-framework - rapid_generator.wiki
+# Rapid-framework - rapid_generator.wiki
 
-#核心理念
+# 核心理念
 
     为你生成一切,再根据所需手工copy回工作区
 
-#通常代码生成器存在的问题.
+# 通常代码生成器存在的问题.
 
     二次开发困难,没有源码可以修改模板文件的model对象等
     过于智能,自动插入我们的项目中,程序员还需考虑旧的代码会不会被覆盖的问题
@@ -27,7 +27,7 @@
     没有将存放模板的目录名称及文件名称利用起来,导致还需配置每个模板文件生成的文件名,目录结构
     具体请查看我写的文章:为何代码生成器都要这么智能呢?
 
-#特性
+# 特性
 
     基于FreeMarker模板语言,并且模板易于修改
     基于数据库,内建好数据库的model,并支持多种数据库(mysql,sql server,oracle测试通过)
@@ -36,7 +36,7 @@
     配置简单,只有一个配置文件generator.properties
     生成器的运行
 
-#在eclipse中运行
+# 在eclipse中运行
 
     配置classpath,将generator/lib中的rapid-generator.jar及其它数据库驱动加入classpath
     修改generator.xml的数据库连接属性及其它属性
@@ -46,15 +46,15 @@
     
     // g.deleteByTable("table_name", "template"); //删除生成的文件 } } ``` 1. 以application方式运行cn.org.rapid_framework.generator.ext.CommandLine
 
-#独立版运行
+# 独立版运行
 
     下载standandalone-rapid-generator.zip,解压并运行rapid-gen.bat http://rapid-framework.googlecode.com/svn/trunk/images/doc/rapid_generator/v3.9/standalon_commandline.jpg
 
-#独立版下载地址
+# 独立版下载地址
  
     http://code.google.com/p/rapid-generator/downloads/list
 
-#生成器讲解
+# 生成器讲解
 
     生成器模板路径可以引用相关变量
     
@@ -66,7 +66,7 @@
     
     自动搜索某个目录所有模板文件,无需配置
 
-#代码生成器模板可以引用的相关变量
+# 代码生成器模板可以引用的相关变量
 
     1. g.generateByTable("table_name") 方法可以引用的变量 table : cn.org.rapid_framework.generator.provider.db.table.model.Table
     
@@ -82,7 +82,7 @@
         generator.properties 文件中的所有属性,直接引用,没有前缀
         gg : 模板控制变量, cn.org.rapid_framework.generator.GeneratorControl
 
-#注意事项
+# 注意事项
 
     每个模板有gg变量可以控制自身的自定义配置 (每一个模板都会创建新的gg实例)
     如是否生成,是否覆盖目标文件,甚至是生成其它文件 示例: ${gg.setIgnoreOutput(true)}, 参考: rapid_generator_gg
@@ -106,7 +106,7 @@
     示例: pkg=com.company => pkg_dir=com/company
 
 
-#数据库表配置(用于自定义生成器模板引用的table变量)
+# 数据库表配置(用于自定义生成器模板引用的table变量)
 
     配置文件必须存放在classpath: generator_config/table/table_name.xml (该文件生成器可以生成，自己再自定义修改) 
     <!-- 
@@ -120,11 +120,11 @@
         <column sqlName="password" columnAlias="password" javaType="String" unique="false" nullable="true" pk="false" updatable="true" insertable="true" enumString="" enumClassName="PasswordEnum" /> 
      </table>
 
-#生成的代码插入文档的某个部位
+# 生成的代码插入文档的某个部位
 
     如模板输出生成的地方已经有该 同名的文件 存在,并且该文件中有包含"generator-insert-location"标记,则模板生成的内容会插入在该标记之后.该特性对如生成的spring配置内容插入spring配置文件十分有用
 
-#创建一个模板
+# 创建一个模板
 
     代码template目录结构
 
@@ -132,27 +132,27 @@
 
     如上所示，目录及文件名称可以引用相关变量。
 
-#创建一个生成器模板文件
+# 创建一个生成器模板文件
 
     在temppate目录创建一个文件,如${className}SpringControler.java 则代码生成器会自动将该模板文件加载并生成该文件
 
     充分利用各种文件的注释 如在.xml中我们可以使用 在.properties文件中我们可以使用 #generator-insert-location 具体请查看template/insert_demo目录的内容
 
-#生成器参数配置
+# 生成器参数配置
 
 通过设置GeneratorProperties.setProperty(key,value)设置相关参数值. 完整的配置参数请查看: http://code.google.com/p/rapid-framework/source/browse/trunk/rapid-mvn/rapid-generator/rapid-generator/src/main/java/cn/org/rapid_framework/generator/GeneratorConstants.java
 
-#生成器核心类图
+# 生成器核心类图
 
     http://rapid-framework.googlecode.com/svn/trunk/images/doc/rapid_generator/core_generator_classes_uml.jpg * Generator为生成器引擎 * GeneratorFacade为生成器入口调用类 * GeneratorProperties 生成器的相关配置，用于读取generator.properties(或者是generator.xml) * TableFactory用于创建Table.java对象，用于GeneratorFacade.generateByTable()使用 * SqlFactory用于创建Sql.java对象,用于GeneratorFacade.generateBySql()使用 * JavaClass模板变量，用于GeneratorFacade.generateByClass()使用
 
-#重复生成代码
+# 重复生成代码
 
     现rapid自带的模板都不支持重复生成代码的，如果你需要重复生成代码，可以采用继承机制技巧重复生成。
 
     Java代码的重复生成,善用 "继承机制" ,示例如下: UserInfoBaseDao : 自动生成的代码, 不能手工修改,用于重复生成 UserInfoDao extends UserInfoBaseDao : 存放手工的代码，不能重复生成 页面的重复生成还没有啥好办法。
 
-#参考
+# 参考
 
     generateByTable() 通过表(或视图)查询生成代码
     generateBySql() 通过sql语句生成代码
@@ -160,11 +160,11 @@
 
 
 
-#模板引擎freemarker
+# 模板引擎freemarker
 
     语法参考: http://freemarker.sourceforge.net/docs/index.html
 
-#相关地址
+# 相关地址
 
     文档地址
     https://code.google.com/archive/p/rapid-framework/wikis/rapid_generator.wiki
