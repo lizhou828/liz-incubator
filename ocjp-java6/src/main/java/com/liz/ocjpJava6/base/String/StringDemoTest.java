@@ -130,6 +130,8 @@ public class StringDemoTest {
 //        4) s1 + s2通过StringBuilder的最后一步toString()方法还原一个新的String对象"ab"，因此堆中开辟一块空间存放此对象，
 //        5) 引用str6指向堆中(s1 + s2)所还原的新String对象，
 //        6) str6指向的对象在堆中，而常量"ab"在池中，输出为false
+//        可以通过  javap -c  com.liz.ocjpJava6.base.String.StringDemoTest.class 命令查看运行过程
+
 //
 //
 //
