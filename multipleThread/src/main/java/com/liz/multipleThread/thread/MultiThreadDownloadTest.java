@@ -3,6 +3,7 @@ package com.liz.multipleThread.thread;
 import com.liz.multipleThread.utils.FileUtils;
 import com.liz.multipleThread.utils.StringUtil;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
@@ -24,6 +25,11 @@ public class MultiThreadDownloadTest {
     private static  int THREAD_NUMBER = 0;
 
     public static void main(String[] args) throws InterruptedException {
+        File file = new File(downloadPath);
+        if(!file.exists()){
+            System.err.println("存放文件的目录不存在！");
+            return;
+        }
         System.out.println("单线程文件下载============================");
         List<String> fileUrlList = new ArrayList<String>();
         fileUrlList.add("https://imgsa.baidu.com/forum/w%3D580/sign=294db374d462853592e0d229a0ee76f2/e732c895d143ad4b630e8f4683025aafa40f0611.jpg");
@@ -306,7 +312,7 @@ public class MultiThreadDownloadTest {
 
         long start = System.currentTimeMillis();
         for(String fileUrl :fileUrlList){
-            FileUtils.download(fileUrl,"C:\\Users\\Administrator\\Desktop\\test");
+            FileUtils.download(fileUrl,downloadPath);
         }
         long end = System.currentTimeMillis();
         System.out.println(fileUrlList.size() + "个文件已下载完成，耗时：" + ( end - start) + "毫秒");
