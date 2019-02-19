@@ -102,18 +102,10 @@
 
 
         <!-- 要生成哪些表-->
-        <table tableName="t_user" domainObjectName="User"  enableCountByExample="true" enableUpdateByExample="true"
+        <table tableName="remise_notice" domainObjectName="RemiseNotice"  enableCountByExample="true" enableUpdateByExample="true"
                enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"
 
-        >
-            <!--useActualColumnNames设置为false表示：不使用数据表中的字段名作为实体对象的属性名，实体对象的属性名默认采用驼峰命名法命名-->
-            <property name="useActualColumnNames" value="false"/>
-
-            <!--当sqlStatement="JDBC"，只有当目标运行为MyBatis3时才会产生正确的代码-->
-            <generatedKey column="user_id" sqlStatement="JDBC" identity="true" />
-        </table>
-
-        <table tableName="t_login_log" domainObjectName="LoginLog"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+                >
             <!--useActualColumnNames设置为false表示：不使用数据表中的字段名作为实体对象的属性名，实体对象的属性名默认采用驼峰命名法命名-->
             <property name="useActualColumnNames" value="false"/>
 
@@ -121,21 +113,19 @@
             <generatedKey column="id" sqlStatement="JDBC" identity="true" />
         </table>
 
-        <table tableName="t_mn_item" domainObjectName="MnItem"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+
+        <table tableName="remise_notice_detail" domainObjectName="RemiseNoticeDetail"  enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"
+
+        >
             <!--useActualColumnNames设置为false表示：不使用数据表中的字段名作为实体对象的属性名，实体对象的属性名默认采用驼峰命名法命名-->
             <property name="useActualColumnNames" value="false"/>
 
             <!--当sqlStatement="JDBC"，只有当目标运行为MyBatis3时才会产生正确的代码-->
-            <generatedKey column="item_id" sqlStatement="JDBC" identity="true" />
+            <generatedKey column="id" sqlStatement="JDBC" identity="true" />
         </table>
 
-        <table tableName="t_mn_cate" domainObjectName="MnCate"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <!--useActualColumnNames设置为false表示：不使用数据表中的字段名作为实体对象的属性名，实体对象的属性名默认采用驼峰命名法命名-->
-            <property name="useActualColumnNames" value="false"/>
 
-            <!--当sqlStatement="JDBC"，只有当目标运行为MyBatis3时才会产生正确的代码-->
-            <generatedKey column="cate_id" sqlStatement="JDBC" identity="true" />
-        </table>
 
         <!--<table tableName="t_login_log" domainObjectName="LoginLog"-->
         <!--escapeWildcards="true"-->
