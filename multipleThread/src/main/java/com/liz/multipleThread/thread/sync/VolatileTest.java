@@ -26,7 +26,7 @@ import java.util.Set;
  * Created by lizhou on 2018年08月14日 22时09分
  */
 public class VolatileTest {
-    public volatile static int x,y = 0;
+    public  static int x,y = 0;
     public  static int a ,b = 0;
     public static Set<String> resultSet = new HashSet<String>();
 
