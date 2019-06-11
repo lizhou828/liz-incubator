@@ -23,9 +23,15 @@
         </dependency>
         <dependency>
             <groupId>com.liz</groupId>
-            <artifactId>liz-common</artifactId>
+            <artifactId>common-utils</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.liz</groupId>
+            <artifactId>common-pojo</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
