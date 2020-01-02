@@ -1,11 +1,11 @@
 /*
  *Project: liz-incubator
- *File: com.liz.ocjpJava6.thread.mutilThread.threadLocal.TestThread.java <2017年05月26日}>
+ *File: com.liz.multipleThread.thread.threadLocal.TestThread.java <2017年05月26日}>
  ****************************************************************
  * 版权所有@2015 国裕网络科技  保留所有权利.
  ***************************************************************/
 
-package com.liz.ocjpJava6.thread.mutilThread.threadLocal;
+package com.liz.multipleThread.thread.threadLocal;
 
 /**
  * @author lizhou

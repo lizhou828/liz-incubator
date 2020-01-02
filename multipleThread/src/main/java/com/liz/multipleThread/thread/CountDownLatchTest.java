@@ -21,16 +21,16 @@ public class CountDownLatchTest {
         sCountDownLatch = new CountDownLatch(THREAD_NUMBER);
         //线程池
         ExecutorService fixedThreadPool = Executors.newFixedThreadPool(THREAD_NUMBER);
-
-        fixedThreadPool.execute(new ConsumeRunnable("two"));
-        fixedThreadPool.execute(new ConsumeRunnable("three"));
-        System.out.println("等待3个子线程执行完毕...");
+        for(int i = 1 ; i <= THREAD_NUMBER;i++){
+            fixedThreadPool.execute(new ConsumeRunnable("子线程"+i));
+        }
+        System.out.println("等待"+ THREAD_NUMBER+"个子线程执行完毕...");
         try {
             //sCountDownLatch.await()方法在源码中的注释
             //Causes the current thread to wait until the latch has counted down to
             // zero, unless the thread is {@linkplain Thread#interrupt interrupted}.
             sCountDownLatch.await();//导致当前线程（即主线程）等待直到latch的计数降为0（除非子线程被打断）
-            System.out.println("3个子线程已经执行完毕");
+            System.out.println(THREAD_NUMBER+"个子线程已经执行完毕");
             System.out.println("继续执行主线程");
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -44,10 +44,10 @@ public class CountDownLatchTest {
             this.mName = name;
         }
         public void run() {
-            System.out.println("子线程" + mName + "正在执行");
+            System.out.println( mName + "running....");
             try {
-                Thread.sleep(3000);// 模拟耗时操作
-                System.out.println("子线程" + mName + "执行完毕");
+                Thread.sleep(2000);// 模拟耗时操作
+                System.out.println(mName + "执行完毕!!!!!");
                 sCountDownLatch.countDown();
             } catch (InterruptedException e) {
                 e.printStackTrace();

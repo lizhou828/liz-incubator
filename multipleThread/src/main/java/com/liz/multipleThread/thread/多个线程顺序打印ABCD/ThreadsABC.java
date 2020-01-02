@@ -5,7 +5,7 @@
  * 版权所有@2015 国裕网络科技  保留所有权利.
  ***************************************************************/
 
-package com.liz.ocjpJava6.thread.mutilThread;
+package com.liz.multipleThread.thread.多个线程顺序打印ABCD;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -18,29 +18,31 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class ThreadsABC {
     public static void main(String argv[]) {
 
-        AtomicInteger synObj = new AtomicInteger(0);
+        AtomicInteger atomicInteger = new AtomicInteger(0);
 
-        TestPrint a = new TestPrint(synObj, "A", 0);
-        TestPrint b = new TestPrint(synObj, "B", 1);
-        TestPrint c = new TestPrint(synObj, "C", 2);
+        TestPrint a = new TestPrint(atomicInteger, "A", 0);
+        TestPrint b = new TestPrint(atomicInteger, "B", 1);
+        TestPrint c = new TestPrint(atomicInteger, "C", 2);
+        TestPrint d = new TestPrint(atomicInteger, "D", 3);
 
         a.start();
         b.start();
         c.start();
+        d.start();
     }
 }
 
 
 class TestPrint extends Thread {
 
-    private AtomicInteger synObj;
+    private AtomicInteger atomicInteger;
     private String name;
     private int flag;
 
     private int count = 0;
 
-    public TestPrint(AtomicInteger synObj, String name, int flag) {
-        this.synObj = synObj;
+    public TestPrint(AtomicInteger atomicInteger, String name, int flag) {
+        this.atomicInteger = atomicInteger;
         this.name = name;
         this.flag = flag;
     }
@@ -48,18 +50,18 @@ class TestPrint extends Thread {
     @Override
     public void run() {
         while (true) {
-            synchronized (synObj) {
-                if (synObj.get() % 3 == flag) {
-                    synObj.set(synObj.get() + 1);
+            synchronized (atomicInteger) {
+                if (atomicInteger.get() % 4 == flag) {
+                    atomicInteger.set(atomicInteger.get() + 1);
                     System.out.println(name);
                     count++;
-                    synObj.notifyAll();
+                    atomicInteger.notifyAll();
                     if (count == 10) {
                         break;
                     }
                 } else {
                     try {
-                        synObj.wait();
+                        atomicInteger.wait();
                     } catch (InterruptedException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();

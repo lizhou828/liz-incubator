@@ -1,4 +1,4 @@
-package com.liz.ocjpJava6.thread.deadLock;
+package com.liz.multipleThread.thread.deadLock;
 
 /**
  * Created by Frank on 2016/9/12.
