@@ -3,12 +3,12 @@
 
 创建型
 
-1. Factory Method（工厂方法）
+1. Singleton（单例）
 
-2. Abstract Factory（抽象工厂）
+2. Prototype（原型）
 
 3. Builder（建造者）
 
-4. Prototype（原型）
+4.Factory Method（工厂方法）
 
-5. Singleton（单例）
+5.Abstract Factory（抽象工厂）

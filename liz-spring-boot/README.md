@@ -23,3 +23,10 @@ liz-spring-boot
 ### How to run this app ?
 
     Please read pom.xml file in this application
+
+
+## html 转pdf
+
+[Java iText+FreeMarker生成PDF(HTML转PDF)](https://www.cnblogs.com/yunfeiyang-88/p/10984740.html)
+
+[Java 实现 HTML 页面转 PDF 解决方案](https://hacpai.com/article/1536549807193)
