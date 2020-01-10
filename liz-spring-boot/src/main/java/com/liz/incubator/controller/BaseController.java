@@ -1,6 +1,5 @@
 package com.liz.incubator.controller;
 
-import com.liz.common.component.cache.MemcacheClient;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -13,8 +12,6 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class BaseController implements ApplicationContextAware {
 
-    @Autowired
-    public MemcacheClient memcacheClient;
 
     private  ApplicationContext context;
 

@@ -1,14 +1,14 @@
 package com.liz.incubator.controller;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloController extends BaseController{
 
-    private static Log log = LogFactory.getLog(HelloController.class);
+    private static final Logger log = LogManager.getLogger(HelloController.class);
 
     @RequestMapping("/")
     public String index() {
