@@ -3,6 +3,7 @@ package com.liz.incubator.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -26,8 +27,8 @@ public class JspController extends BaseController{
      * @param modelMap
      * @return
      */
-    @RequestMapping("/welcome")
-    public String welcome(ModelMap modelMap)throws NumberFormatException{
-        return "welcome";
+    @RequestMapping(value = "/welcome",method = RequestMethod.GET)
+    public ModelAndView welcome(ModelMap modelMap)throws NumberFormatException{
+        return new ModelAndView("welcome");
     }
 }

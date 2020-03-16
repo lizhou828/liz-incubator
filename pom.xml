@@ -46,7 +46,7 @@
 
 
     <!--指定 中央仓库-->
-    <repositories>
+    <!--<repositories>-->
         <!--<repository>-->
             <!--<id>nexus</id>-->
             <!--<name>nexus</name>-->
@@ -59,73 +59,73 @@
                 <!--<enabled>true</enabled>-->
             <!--</snapshots>-->
         <!--</repository>-->
-        <repository>
-            <id>OsChina Repository</id>
-            <name>OsChina Repository</name>
-            <url>http://maven.oschina.net/content/groups/public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>JBoss</id>
-            <name>JBoss Repository</name>
-            <url>http://repository.jboss.com/maven2/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-        <repository>
-            <id>java net</id>
-            <url>https://maven.java.net/content/groups/public/</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>fusesource</id>
-            <url>http://repo.fusesource.com/nexus/content/groups/public/</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>SonaType</id>
-            <name>SonaType Repository</name>
-            <url>http://repository.sonatype.org/content/groups/public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>Glassfish</id>
-            <name>Glassfish Repository</name>
-            <url>http://maven.glassfish.org/content/groups/glassfish/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>SourceSense</id>
-            <name>SourceSense Repository</name>
-            <url>https://nexus.sourcesense.com/nexus/content/repository</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
+        <!--<repository>-->
+            <!--<id>OsChina Repository</id>-->
+            <!--<name>OsChina Repository</name>-->
+            <!--<url>http://maven.oschina.net/content/groups/public/</url>-->
+            <!--<releases>-->
+                <!--<enabled>true</enabled>-->
+            <!--</releases>-->
+            <!--<snapshots>-->
+                <!--<enabled>true</enabled>-->
+            <!--</snapshots>-->
+        <!--</repository>-->
+        <!--<repository>-->
+            <!--<id>JBoss</id>-->
+            <!--<name>JBoss Repository</name>-->
+            <!--<url>http://repository.jboss.com/maven2/</url>-->
+            <!--<releases>-->
+                <!--<enabled>true</enabled>-->
+            <!--</releases>-->
+        <!--</repository>-->
+        <!--<repository>-->
+            <!--<id>java net</id>-->
+            <!--<url>https://maven.java.net/content/groups/public/</url>-->
+            <!--<snapshots>-->
+                <!--<enabled>false</enabled>-->
+            <!--</snapshots>-->
+        <!--</repository>-->
+        <!--<repository>-->
+            <!--<id>fusesource</id>-->
+            <!--<url>http://repo.fusesource.com/nexus/content/groups/public/</url>-->
+            <!--<snapshots>-->
+                <!--<enabled>false</enabled>-->
+            <!--</snapshots>-->
+        <!--</repository>-->
+        <!--<repository>-->
+            <!--<id>SonaType</id>-->
+            <!--<name>SonaType Repository</name>-->
+            <!--<url>http://repository.sonatype.org/content/groups/public/</url>-->
+            <!--<releases>-->
+                <!--<enabled>true</enabled>-->
+            <!--</releases>-->
+            <!--<snapshots>-->
+                <!--<enabled>true</enabled>-->
+            <!--</snapshots>-->
+        <!--</repository>-->
+        <!--<repository>-->
+            <!--<id>Glassfish</id>-->
+            <!--<name>Glassfish Repository</name>-->
+            <!--<url>http://maven.glassfish.org/content/groups/glassfish/</url>-->
+            <!--<releases>-->
+                <!--<enabled>true</enabled>-->
+            <!--</releases>-->
+            <!--<snapshots>-->
+                <!--<enabled>true</enabled>-->
+            <!--</snapshots>-->
+        <!--</repository>-->
+        <!--<repository>-->
+            <!--<id>SourceSense</id>-->
+            <!--<name>SourceSense Repository</name>-->
+            <!--<url>https://nexus.sourcesense.com/nexus/content/repository</url>-->
+            <!--<releases>-->
+                <!--<enabled>true</enabled>-->
+            <!--</releases>-->
+            <!--<snapshots>-->
+                <!--<enabled>true</enabled>-->
+            <!--</snapshots>-->
+        <!--</repository>-->
+    <!--</repositories>-->
     <!-- public remote repositories -->
 
 

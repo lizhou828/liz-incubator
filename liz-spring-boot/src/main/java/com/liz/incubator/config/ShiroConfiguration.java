@@ -84,7 +84,8 @@ public class ShiroConfiguration {
                 .setSecurityManager(getDefaultWebSecurityManager());
         shiroFilterFactoryBean.setLoginUrl("/login");//没有权限或者失败后跳转的页面
         shiroFilterFactoryBean.setSuccessUrl("/loginSuccess");
-        filterChainDefinitionMap.put("/welcome", "authc");//authc:表示需要认证
+        filterChainDefinitionMap.put("/mnCate", "authc");//authc:表示需要认证
+        filterChainDefinitionMap.put("/welcome", "anon");//anon:表示匿名访问（不需要认证与授权）
         filterChainDefinitionMap.put("/helloWorld", "anon");//anon:表示匿名访问（不需要认证与授权）
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
