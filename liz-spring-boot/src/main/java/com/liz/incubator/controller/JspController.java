@@ -28,7 +28,41 @@ public class JspController extends BaseController{
      * @return
      */
     @RequestMapping(value = "/welcome",method = RequestMethod.GET)
-    public ModelAndView welcome(ModelMap modelMap)throws NumberFormatException{
+    public ModelAndView welcome(ModelMap modelMap){
         return new ModelAndView("welcome");
     }
+
+    /**
+     * 在网页中预览doc文件
+     * @param modelMap
+     * @return
+     */
+    @RequestMapping(value = "/doc",method = RequestMethod.GET)
+    public ModelAndView doc(ModelMap modelMap){
+        return new ModelAndView("doc");
+    }
+
+    /**
+     * 在网页中预览docx文件
+     * @param modelMap
+     * @return
+     */
+    @RequestMapping(value = "/docx",method = RequestMethod.GET)
+    public ModelAndView docx(ModelMap modelMap){
+        return new ModelAndView("docx");
+    }
+
+    /**
+     * 在网页中预览pdf文件
+     * 采用PDF.js的解决方案
+     * 前提条件：支持HTML5的浏览器
+     * @param modelMap
+     * @return
+     */
+    @RequestMapping(value = "/pdf",method = RequestMethod.GET)
+    public ModelAndView pdf(ModelMap modelMap){
+        return new ModelAndView("pdf");
+    }
+
+
 }
