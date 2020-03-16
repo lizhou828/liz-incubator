@@ -34,6 +34,10 @@ public class JspController extends BaseController{
 
     /**
      * 在网页中预览doc文件
+     * 使用微软云端的接口，在线预览doc文件
+     * 注意：链接包含中文需要进行URL编码，并且文档必须可在Internet上公开访问(公网访问地址)
+     * 官方地址：
+     * https://www.microsoft.com/en-us/microsoft-365/blog/2013/04/10/office-web-viewer-view-office-documents-in-a-browser/
      * @param modelMap
      * @return
      */
@@ -44,6 +48,10 @@ public class JspController extends BaseController{
 
     /**
      * 在网页中预览docx文件
+     * 使用微软云端的接口，在线预览docx文件
+     * 注意：链接包含中文需要进行URL编码，并且文档必须可在Internet上公开访问(公网访问地址)
+     * 官方地址：
+     * https://www.microsoft.com/en-us/microsoft-365/blog/2013/04/10/office-web-viewer-view-office-documents-in-a-browser/
      * @param modelMap
      * @return
      */
